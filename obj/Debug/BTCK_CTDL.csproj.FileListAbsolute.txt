@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Debug\BTCK_CTDL.exe.config
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Debug\BTCK_CTDL.exe
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Debug\BTCK_CTDL.pdb
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.Form1.resources
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.Properties.Resources.resources
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.exe
+C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Debug\BTCK_CTDL.pdb
