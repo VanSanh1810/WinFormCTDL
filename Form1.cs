@@ -347,9 +347,15 @@ namespace BTCK_CTDL
         }
         private void txbMSSV_delGT_Leave(object sender, EventArgs e)
         {
-            _MSSV = txbMSSV_delGT.Text;
-            var K = SV.Single(r => r.MSSV == _MSSV);
-            SetCheckList_GT(K.GT);
+            try
+            {
+                _MSSV = txbMSSV_delGT.Text;
+                var K = SV.Single(r => r.MSSV == _MSSV);
+                SetCheckList_GT(K.GT);
+            }catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
         /////////////////////////////////////////////Find
         private void btn_find_Click(object sender, EventArgs e)
