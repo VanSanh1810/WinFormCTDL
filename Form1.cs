@@ -352,9 +352,13 @@ namespace BTCK_CTDL
                 _MSSV = txbMSSV_delGT.Text;
                 var K = SV.Single(r => r.MSSV == _MSSV);
                 SetCheckList_GT(K.GT);
-            }catch(Exception error)
+                label19.Text = "";
+            }
+            catch(Exception error)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(error.Message, "Error");
+                label19.Text = "Hãy nhập MSSV";
+                label19.ForeColor = Color.Red;
             }
         }
         /////////////////////////////////////////////Find
