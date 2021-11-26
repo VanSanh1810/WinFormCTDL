@@ -60,32 +60,69 @@ namespace BTCK_CTDL
 
         public static void MakeFile(LinkedList<SinhVien> SV)
         {
-            
-            Stack<string> lsv = new Stack<string>();
-            for(int i=0; i< SV.Count; i++)
+
+            if (SV.Count > 0)
             {
-                lsv.Push(SV.ElementAt<SinhVien>(i).MSSV.ToString() + " " + SV.ElementAt<SinhVien>(i).name.ToString() + " " + SV.ElementAt<SinhVien>(i).namsinh.ToString());
+                Stack<string> lsv = new Stack<string>();
+                for (int i = 0; i < SV.Count; i++)
+                {
+                    lsv.Push(SV.ElementAt<SinhVien>(i).MSSV.ToString() + " " + SV.ElementAt<SinhVien>(i).name.ToString() + " " + SV.ElementAt<SinhVien>(i).namsinh.ToString());
+                }
+                File.WriteAllLines("ListSV.txt", lsv);
             }
-            File.WriteAllLines("ListSV.txt", lsv);
+            else
+            {
+                try
+                {
+                    File.Delete("ListSV.txt");
+                }
+                catch
+                {
+
+                }
+            }
             foreach(var i in SV)
             {
                 if(i.MN.Count > 0)
                 {
-                    string[] temp1 = { };
+                    Stack<string> temp1 = new Stack<string>();
                     for(int j=0; j< i.MN.Count; j++)
                     {
-                        temp1[j] = i.MN.ElementAt<MonHoc>(j).MH.ToString() + " " + i.MN.ElementAt<MonHoc>(j).soTinChi.ToString();
+                        temp1.Push(i.MN.ElementAt<MonHoc>(j).MH.ToString() + " " + i.MN.ElementAt<MonHoc>(j).soTinChi.ToString());
                     }
                     File.WriteAllLines(i.MSSV.ToString()+"MH.txt", temp1);
                 }
+                else
+                {
+                    try
+                    {
+                        File.Delete(i.MSSV.ToString() + "MH.txt");
+                    }
+                    catch
+                    {
+
+                    }
+                }
                 if (i.GT.Count > 0)
                 {
-                    string[] temp2 = { };
+                    Stack<string> temp2 = new Stack<string>();
                     for (int j = 0; j < i.MN.Count; j++)
                     {
-                        temp2[j] = i.GT.ElementAt<GiaiThuong>(j).GT.ToString() + " " + i.GT.ElementAt<GiaiThuong>(j).tienThuong.ToString();
+                        temp2.Push(i.GT.ElementAt<GiaiThuong>(j).GT.ToString() + " " + i.GT.ElementAt<GiaiThuong>(j).tienThuong.ToString());
                     }
                     File.WriteAllLines(i.MSSV.ToString() + "GT.txt", temp2);
+
+                }
+                else
+                {
+                    try
+                    {
+                        File.Delete(i.MSSV.ToString() + "GT.txt");
+                    }
+                    catch
+                    {
+
+                    }
                 }
             }
         }

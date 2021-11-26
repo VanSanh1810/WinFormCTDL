@@ -667,7 +667,7 @@ namespace BTCK_CTDL
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel7.Controls.Add(this.listBox1);
             this.panel7.Controls.Add(this.dataGridView2);
             this.panel7.Controls.Add(this.dataGridView1);
@@ -691,15 +691,15 @@ namespace BTCK_CTDL
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(380, 273);
+            this.dataGridView2.Location = new System.Drawing.Point(380, 153);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(373, 112);
+            this.dataGridView2.Size = new System.Drawing.Size(373, 104);
             this.dataGridView2.TabIndex = 10;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(380, 152);
+            this.dataGridView1.Location = new System.Drawing.Point(380, 263);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(373, 115);
             this.dataGridView1.TabIndex = 9;
