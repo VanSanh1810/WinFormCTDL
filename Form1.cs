@@ -38,6 +38,7 @@ namespace BTCK_CTDL
         {
             InitializeComponent();
             Init_DTSV();
+            GetData();
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -49,6 +50,19 @@ namespace BTCK_CTDL
         //////////////////////////////////////////////////////////////////////////////////////////
 
         #region Function
+        private void GetData()
+        {
+            MyFile.SetupSV(SV);
+            foreach(var sv in SV)
+            {
+                MyFile.SetupMH(sv.MN, sv.MSSV);
+                MyFile.SetupGT(sv.GT, sv.MSSV);
+                sv.Update_dtGT();
+                sv.Update_dtMH();
+            }
+            Update_dtSV();
+            dataGridView_SV.DataSource = dt_SV;
+        }
         private void Update_dtSV()
         {
             dt_SV.Rows.Clear();
@@ -387,6 +401,10 @@ namespace BTCK_CTDL
             {
                 MessageBox.Show(error.Message);
             }
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MyFile.MakeFile(SV);
         }
         #endregion
 
