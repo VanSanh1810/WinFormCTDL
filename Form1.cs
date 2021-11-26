@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace BTCK_CTDL
 {
@@ -32,6 +33,8 @@ namespace BTCK_CTDL
 
         Exception TrungDuLieu_GT = new Exception("This awards already exists in the list !");
         Exception KhongCoDuLieu_GT = new Exception("This awards dont exists in the list !");
+
+        Exception HayChonieuKien = new Exception("You need to select at least one filter condition !");
         #endregion
 
         public Form1()
@@ -39,6 +42,8 @@ namespace BTCK_CTDL
             InitializeComponent();
             Init_DTSV();
             GetData();
+            Init_Chart_MH();
+            Init_Chart_GT();
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -50,7 +55,15 @@ namespace BTCK_CTDL
         //////////////////////////////////////////////////////////////////////////////////////////
 
         #region Function
-        private void GetData()
+        private void Init_Chart_MH()
+        {
+            chart_MH.Titles.Add("Môn học");
+        }
+        private void Init_Chart_GT()
+        {
+            chart_GT.Titles.Add("Giải thưởng");
+        }
+        private void GetData() //Lay du lieu luu tru khi khoi dong
         {
             MyFile.SetupSV(SV);
             foreach(var sv in SV)
@@ -129,6 +142,34 @@ namespace BTCK_CTDL
                 checkedListBox_delGT.Items.Add(temp);
             }
         }
+
+        private void SetupMHChartAndGTChart(List<XY> Chrt_MH, List<XY> Chrt_GT)
+        {
+            foreach (var sv in SV)
+            {
+                int temp_SLMH = sv.MN.Count;
+                int temp_SLGT = sv.GT.Count;
+                if (!Chrt_MH.Any(r => r.sl_loai == temp_SLMH))
+                {
+                    Chrt_MH.Add(new XY(1, temp_SLMH));
+                }
+                else
+                {
+                    var mh = Chrt_MH.SingleOrDefault(r => r.sl_loai == temp_SLMH);
+                    mh.sl++;
+                }
+
+                if (!Chrt_GT.Any(r => r.sl_loai == temp_SLGT))
+                {
+                    Chrt_GT.Add(new XY(1, temp_SLGT));
+                }
+                else
+                {
+                    var gt = Chrt_GT.SingleOrDefault(r => r.sl_loai == temp_SLGT);
+                    gt.sl++;
+                }
+            }
+        }
         #endregion
 
 
@@ -190,7 +231,11 @@ namespace BTCK_CTDL
                     SV.Remove(K);
                     Update_dtSV();
                     //
+                    File.Delete(_MSSV + "MH.txt");
+                    File.Delete(_MSSV + "GT.txt");
+                    //
                     txbMSSV_delSV.Text = "";
+
                 }
                 else
                 {
@@ -402,12 +447,168 @@ namespace BTCK_CTDL
                 MessageBox.Show(error.Message);
             }
         }
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        ///////////////////////////////////////////////Thong ke
+        private void tabControl1_Click(object sender, EventArgs e) //Setup cho các chart sau khi chuyển tab
+        {
+            chart_MH.Series["Số lượng SV"].Points.Clear();
+            chart_GT.Series["Số lượng SV"].Points.Clear();
+            List<XY> Chrt_MH = new List<XY>();
+            List<XY> Chrt_GT = new List<XY>();
+            SetupMHChartAndGTChart(Chrt_MH, Chrt_GT);
+            /////
+            checkedListBoxSLGT_ThongKe.Items.Clear();
+            checkedListBoxSLMH_ThongKe.Items.Clear();
+            foreach(var i in Chrt_MH)
+            {
+                checkedListBoxSLMH_ThongKe.Items.Add(i.sl_loai);
+            }
+            foreach(var i in Chrt_GT)
+            {
+                checkedListBoxSLGT_ThongKe.Items.Add(i.sl_loai);
+            }
+            /////
+            while(Chrt_MH.Count != 0) //Show ra chart MH theo thứ tự tăng dần của sô môn đk
+            {
+                int max = 1000;
+                XY K = new XY();
+                foreach (var i in Chrt_MH)
+                {
+                    if(i.sl_loai < max)
+                    {
+                        K = i;
+                        max = i.sl_loai;
+                    }
+                }
+                chart_MH.Series["Số lượng SV"].Points.AddXY(K.sl_loai + " môn", K.sl);
+                Chrt_MH.Remove(K);
+            } 
+            while (Chrt_GT.Count != 0)//Show ra chart GT theo thứ tự tăng dân của số gt đã đạt đc
+            {
+                int max = 1000;
+                XY K = new XY();
+                foreach (var i in Chrt_GT)
+                {
+                    if (i.sl_loai < max)
+                    {
+                        K = i;
+                        max = i.sl_loai;
+                    }
+                }
+                chart_GT.Series["Số lượng SV"].Points.AddXY(K.sl_loai + " giải", K.sl);
+                Chrt_GT.Remove(K);
+            } 
+            ////
+        }
+        private void btnLOC_ThongKe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!checkBoxGT_ThongKE.Checked && !checkBoxMH_ThongKe.Checked)
+                {
+                    throw HayChonieuKien;
+                }
+                listBox_ThongKe.Items.Clear();
+                foreach (var K in SV)
+                {
+                    try
+                    {
+                        if (checkBoxMH_ThongKe.Checked)
+                        {
+                            if(checkedListBoxSLMH_ThongKe.CheckedItems.Count == 0)
+                            {
+                                MessageBox.Show(HayChonieuKien.Message);
+                                goto STOP;
+                            }
+                            else
+                            {
+                                int count = 0;
+                                foreach (int s in checkedListBoxSLMH_ThongKe.CheckedItems)
+                                {
+                                    if (K.MN.Count == s)
+                                    {
+                                        count++;
+                                    }
+                                }
+                                if(count == 0)
+                                {
+                                    throw KhongCoDuLieu_GT; //Throw loi bat ki bo qua catch
+                                }
+                            }
+                        }
+                        if (checkBoxGT_ThongKE.Checked)
+                        {
+                            if (checkedListBoxSLGT_ThongKe.CheckedItems.Count == 0)
+                            {
+                                MessageBox.Show(HayChonieuKien.Message);
+                                goto STOP;
+                            }
+                            else
+                            {
+                                int count = 0;
+                                foreach (int s in checkedListBoxSLGT_ThongKe.CheckedItems)
+                                {
+                                    if (K.GT.Count == s)
+                                    {
+                                        count++;
+                                    }
+                                }
+                                if(count == 0)
+                                {
+                                    throw KhongCoDuLieu_GT; //Throw loi bat ki bo qua catch
+                                }
+                            }
+                        }
+                        listBox_ThongKe.Items.Add("MSSV: " + K.MSSV.ToString());
+                        listBox_ThongKe.Items.Add("Tên: " + K.name.ToString());
+                        listBox_ThongKe.Items.Add("Năm sinh: " + K.namsinh.ToString());
+                        listBox_ThongKe.Items.Add("Số môn học đã đăng ký: " + K.MN.Count.ToString());
+                        listBox_ThongKe.Items.Add("Số giải thưởng đã có: " + K.GT.Count.ToString());
+                        listBox_ThongKe.Items.Add("---------------------------------------");
+                    }
+                    catch (Exception error)
+                    {
+                        //break;
+                    }
+                }
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        STOP:
+            txbMSSV_addMH.Text = "";
+        }
+        private void checkBoxGT_ThongKE_Click(object sender, EventArgs e)
+        {
+            if (checkBoxGT_ThongKE.Checked)
+            {
+                checkedListBoxSLGT_ThongKe.Enabled = true;
+            }
+            else
+            {
+                checkedListBoxSLGT_ThongKe.Enabled = false;
+            }
+        }
+
+        private void checkBoxMH_ThongKe_Click(object sender, EventArgs e)
+        {
+            if (checkBoxMH_ThongKe.Checked)
+            {
+                checkedListBoxSLMH_ThongKe.Enabled = true;
+            }
+            else
+            {
+                checkedListBoxSLMH_ThongKe.Enabled = false;
+            }
+        }
+
+        /////////////////////////////////////////////////Save AfterClose
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) //Luu lai thong tin moi khi tat Form
         {
             MyFile.MakeFile(SV);
         }
-        #endregion
 
+        #endregion
 
     }
 }

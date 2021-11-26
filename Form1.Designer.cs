@@ -29,6 +29,12 @@ namespace BTCK_CTDL
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_SV = new System.Windows.Forms.TabPage();
@@ -94,6 +100,16 @@ namespace BTCK_CTDL
             this.btn_find = new System.Windows.Forms.Button();
             this.txbMSSV_find = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.tabPage_ThongKe = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.chart_GT = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_MH = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.checkedListBoxSLMH_ThongKe = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxMH_ThongKe = new System.Windows.Forms.CheckBox();
+            this.checkedListBoxSLGT_ThongKe = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxGT_ThongKE = new System.Windows.Forms.CheckBox();
+            this.btnLOC_ThongKe = new System.Windows.Forms.Button();
+            this.listBox_ThongKe = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage_SV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SV)).BeginInit();
@@ -111,6 +127,13 @@ namespace BTCK_CTDL
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage_ThongKe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_GT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_MH)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -122,11 +145,13 @@ namespace BTCK_CTDL
             this.tabControl1.Controls.Add(this.tabPage_MH);
             this.tabControl1.Controls.Add(this.tabPage_GT);
             this.tabControl1.Controls.Add(this.tabPage_TRACUU);
+            this.tabControl1.Controls.Add(this.tabPage_ThongKe);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(776, 426);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
             // tabPage_SV
             // 
@@ -741,6 +766,132 @@ namespace BTCK_CTDL
             this.label24.TabIndex = 0;
             this.label24.Text = "Mã số sinh viên";
             // 
+            // tabPage_ThongKe
+            // 
+            this.tabPage_ThongKe.Controls.Add(this.splitContainer1);
+            this.tabPage_ThongKe.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_ThongKe.Name = "tabPage_ThongKe";
+            this.tabPage_ThongKe.Size = new System.Drawing.Size(768, 400);
+            this.tabPage_ThongKe.TabIndex = 4;
+            this.tabPage_ThongKe.Text = "Thống kê";
+            this.tabPage_ThongKe.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.splitContainer1.Panel1.Controls.Add(this.listBox_ThongKe);
+            this.splitContainer1.Panel1.Controls.Add(this.btnLOC_ThongKe);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBoxGT_ThongKE);
+            this.splitContainer1.Panel1.Controls.Add(this.checkedListBoxSLGT_ThongKe);
+            this.splitContainer1.Panel1.Controls.Add(this.checkBoxMH_ThongKe);
+            this.splitContainer1.Panel1.Controls.Add(this.checkedListBoxSLMH_ThongKe);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.splitContainer1.Panel2.Controls.Add(this.chart_GT);
+            this.splitContainer1.Panel2.Controls.Add(this.chart_MH);
+            this.splitContainer1.Size = new System.Drawing.Size(768, 400);
+            this.splitContainer1.SplitterDistance = 256;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // chart_GT
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart_GT.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_GT.Legends.Add(legend1);
+            this.chart_GT.Location = new System.Drawing.Point(3, 195);
+            this.chart_GT.Name = "chart_GT";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Số lượng SV";
+            this.chart_GT.Series.Add(series1);
+            this.chart_GT.Size = new System.Drawing.Size(502, 202);
+            this.chart_GT.TabIndex = 1;
+            this.chart_GT.Text = "chart2";
+            // 
+            // chart_MH
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart_MH.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_MH.Legends.Add(legend2);
+            this.chart_MH.Location = new System.Drawing.Point(3, 3);
+            this.chart_MH.Name = "chart_MH";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Số lượng SV";
+            this.chart_MH.Series.Add(series2);
+            this.chart_MH.Size = new System.Drawing.Size(502, 186);
+            this.chart_MH.TabIndex = 0;
+            this.chart_MH.Text = "chart1";
+            // 
+            // checkedListBoxSLMH_ThongKe
+            // 
+            this.checkedListBoxSLMH_ThongKe.Enabled = false;
+            this.checkedListBoxSLMH_ThongKe.FormattingEnabled = true;
+            this.checkedListBoxSLMH_ThongKe.Location = new System.Drawing.Point(3, 33);
+            this.checkedListBoxSLMH_ThongKe.Name = "checkedListBoxSLMH_ThongKe";
+            this.checkedListBoxSLMH_ThongKe.Size = new System.Drawing.Size(101, 109);
+            this.checkedListBoxSLMH_ThongKe.TabIndex = 2;
+            // 
+            // checkBoxMH_ThongKe
+            // 
+            this.checkBoxMH_ThongKe.AutoSize = true;
+            this.checkBoxMH_ThongKe.Location = new System.Drawing.Point(3, 10);
+            this.checkBoxMH_ThongKe.Name = "checkBoxMH_ThongKe";
+            this.checkBoxMH_ThongKe.Size = new System.Drawing.Size(101, 17);
+            this.checkBoxMH_ThongKe.TabIndex = 2;
+            this.checkBoxMH_ThongKe.Text = "Lọc theo sl môn";
+            this.checkBoxMH_ThongKe.UseVisualStyleBackColor = true;
+            this.checkBoxMH_ThongKe.Click += new System.EventHandler(this.checkBoxMH_ThongKe_Click);
+            // 
+            // checkedListBoxSLGT_ThongKe
+            // 
+            this.checkedListBoxSLGT_ThongKe.Enabled = false;
+            this.checkedListBoxSLGT_ThongKe.FormattingEnabled = true;
+            this.checkedListBoxSLGT_ThongKe.Location = new System.Drawing.Point(110, 33);
+            this.checkedListBoxSLGT_ThongKe.Name = "checkedListBoxSLGT_ThongKe";
+            this.checkedListBoxSLGT_ThongKe.Size = new System.Drawing.Size(101, 109);
+            this.checkedListBoxSLGT_ThongKe.TabIndex = 3;
+            // 
+            // checkBoxGT_ThongKE
+            // 
+            this.checkBoxGT_ThongKE.AutoSize = true;
+            this.checkBoxGT_ThongKE.Location = new System.Drawing.Point(110, 10);
+            this.checkBoxGT_ThongKE.Name = "checkBoxGT_ThongKE";
+            this.checkBoxGT_ThongKE.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxGT_ThongKE.TabIndex = 4;
+            this.checkBoxGT_ThongKE.Text = "Lọc theo sl giải";
+            this.checkBoxGT_ThongKE.UseVisualStyleBackColor = true;
+            this.checkBoxGT_ThongKE.Click += new System.EventHandler(this.checkBoxGT_ThongKE_Click);
+            // 
+            // btnLOC_ThongKe
+            // 
+            this.btnLOC_ThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnLOC_ThongKe.Location = new System.Drawing.Point(217, 33);
+            this.btnLOC_ThongKe.Name = "btnLOC_ThongKe";
+            this.btnLOC_ThongKe.Size = new System.Drawing.Size(36, 107);
+            this.btnLOC_ThongKe.TabIndex = 2;
+            this.btnLOC_ThongKe.Text = "Lọc";
+            this.btnLOC_ThongKe.UseVisualStyleBackColor = false;
+            this.btnLOC_ThongKe.Click += new System.EventHandler(this.btnLOC_ThongKe_Click);
+            // 
+            // listBox_ThongKe
+            // 
+            this.listBox_ThongKe.FormattingEnabled = true;
+            this.listBox_ThongKe.Location = new System.Drawing.Point(3, 146);
+            this.listBox_ThongKe.Name = "listBox_ThongKe";
+            this.listBox_ThongKe.Size = new System.Drawing.Size(250, 251);
+            this.listBox_ThongKe.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -781,6 +932,14 @@ namespace BTCK_CTDL
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage_ThongKe.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_GT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_MH)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -851,6 +1010,16 @@ namespace BTCK_CTDL
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabPage tabPage_ThongKe;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_GT;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_MH;
+        private System.Windows.Forms.CheckedListBox checkedListBoxSLMH_ThongKe;
+        private System.Windows.Forms.CheckBox checkBoxMH_ThongKe;
+        private System.Windows.Forms.CheckBox checkBoxGT_ThongKE;
+        private System.Windows.Forms.CheckedListBox checkedListBoxSLGT_ThongKe;
+        private System.Windows.Forms.Button btnLOC_ThongKe;
+        private System.Windows.Forms.ListBox listBox_ThongKe;
     }
 }
 
