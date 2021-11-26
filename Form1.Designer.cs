@@ -110,6 +110,8 @@ namespace BTCK_CTDL
             this.checkBoxGT_ThongKE = new System.Windows.Forms.CheckBox();
             this.btnLOC_ThongKe = new System.Windows.Forms.Button();
             this.listBox_ThongKe = new System.Windows.Forms.ListBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_SV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SV)).BeginInit();
@@ -795,6 +797,8 @@ namespace BTCK_CTDL
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.splitContainer1.Panel2.Controls.Add(this.label23);
+            this.splitContainer1.Panel2.Controls.Add(this.label22);
             this.splitContainer1.Panel2.Controls.Add(this.chart_GT);
             this.splitContainer1.Panel2.Controls.Add(this.chart_MH);
             this.splitContainer1.Size = new System.Drawing.Size(768, 400);
@@ -809,6 +813,7 @@ namespace BTCK_CTDL
             this.chart_GT.Legends.Add(legend1);
             this.chart_GT.Location = new System.Drawing.Point(3, 195);
             this.chart_GT.Name = "chart_GT";
+            this.chart_GT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Số lượng SV";
@@ -825,6 +830,7 @@ namespace BTCK_CTDL
             this.chart_MH.Legends.Add(legend2);
             this.chart_MH.Location = new System.Drawing.Point(3, 3);
             this.chart_MH.Name = "chart_MH";
+            this.chart_MH.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Số lượng SV";
@@ -892,6 +898,26 @@ namespace BTCK_CTDL
             this.listBox_ThongKe.Size = new System.Drawing.Size(250, 251);
             this.listBox_ThongKe.TabIndex = 2;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(373, 158);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(114, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Số lượng môn đăng ký";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(373, 364);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(107, 13);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "Số lượng giải thưởng ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +962,7 @@ namespace BTCK_CTDL
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart_GT)).EndInit();
@@ -1020,6 +1047,8 @@ namespace BTCK_CTDL
         private System.Windows.Forms.CheckedListBox checkedListBoxSLGT_ThongKe;
         private System.Windows.Forms.Button btnLOC_ThongKe;
         private System.Windows.Forms.ListBox listBox_ThongKe;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
     }
 }
 

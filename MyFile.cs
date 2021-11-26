@@ -36,7 +36,7 @@ namespace BTCK_CTDL
                     GT.AddFirst(new GiaiThuong(temp[0], int.Parse(temp[1])));
                 }
             }
-            catch (Exception e)
+            catch
             {
                 
             }
