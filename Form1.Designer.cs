@@ -70,6 +70,7 @@ namespace BTCK_CTDL
             this.tabPage_GT = new System.Windows.Forms.TabPage();
             this.dataGridView_GT = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
             this.checkedListBox_delGT = new System.Windows.Forms.CheckedListBox();
             this.btn_delGT = new System.Windows.Forms.Button();
             this.txbMSSV_delGT = new System.Windows.Forms.TextBox();
@@ -93,7 +94,6 @@ namespace BTCK_CTDL
             this.btn_find = new System.Windows.Forms.Button();
             this.txbMSSV_find = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_SV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SV)).BeginInit();
@@ -513,6 +513,15 @@ namespace BTCK_CTDL
             this.panel6.Size = new System.Drawing.Size(378, 195);
             this.panel6.TabIndex = 22;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(289, 43);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(10, 13);
+            this.label19.TabIndex = 23;
+            this.label19.Text = " ";
+            // 
             // checkedListBox_delGT
             // 
             this.checkedListBox_delGT.FormattingEnabled = true;
@@ -732,15 +741,6 @@ namespace BTCK_CTDL
             this.label24.TabIndex = 0;
             this.label24.Text = "Mã số sinh viên";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(289, 43);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(10, 13);
-            this.label19.TabIndex = 23;
-            this.label19.Text = " ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -755,6 +755,7 @@ namespace BTCK_CTDL
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form1";
             this.Text = "Quản lý sinh viên";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage_SV.ResumeLayout(false);
