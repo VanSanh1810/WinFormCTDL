@@ -102,16 +102,16 @@ namespace BTCK_CTDL
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage_ThongKe = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listBox_ThongKe = new System.Windows.Forms.ListBox();
+            this.btnLOC_ThongKe = new System.Windows.Forms.Button();
+            this.checkBoxGT_ThongKE = new System.Windows.Forms.CheckBox();
+            this.checkedListBoxSLGT_ThongKe = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxMH_ThongKe = new System.Windows.Forms.CheckBox();
+            this.checkedListBoxSLMH_ThongKe = new System.Windows.Forms.CheckedListBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.chart_GT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_MH = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.checkedListBoxSLMH_ThongKe = new System.Windows.Forms.CheckedListBox();
-            this.checkBoxMH_ThongKe = new System.Windows.Forms.CheckBox();
-            this.checkedListBoxSLGT_ThongKe = new System.Windows.Forms.CheckedListBox();
-            this.checkBoxGT_ThongKE = new System.Windows.Forms.CheckBox();
-            this.btnLOC_ThongKe = new System.Windows.Forms.Button();
-            this.listBox_ThongKe = new System.Windows.Forms.ListBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_SV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SV)).BeginInit();
@@ -805,6 +805,85 @@ namespace BTCK_CTDL
             this.splitContainer1.SplitterDistance = 256;
             this.splitContainer1.TabIndex = 0;
             // 
+            // listBox_ThongKe
+            // 
+            this.listBox_ThongKe.FormattingEnabled = true;
+            this.listBox_ThongKe.Location = new System.Drawing.Point(3, 146);
+            this.listBox_ThongKe.Name = "listBox_ThongKe";
+            this.listBox_ThongKe.Size = new System.Drawing.Size(250, 251);
+            this.listBox_ThongKe.TabIndex = 2;
+            // 
+            // btnLOC_ThongKe
+            // 
+            this.btnLOC_ThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnLOC_ThongKe.Location = new System.Drawing.Point(217, 33);
+            this.btnLOC_ThongKe.Name = "btnLOC_ThongKe";
+            this.btnLOC_ThongKe.Size = new System.Drawing.Size(36, 107);
+            this.btnLOC_ThongKe.TabIndex = 2;
+            this.btnLOC_ThongKe.Text = "Lọc";
+            this.btnLOC_ThongKe.UseVisualStyleBackColor = false;
+            this.btnLOC_ThongKe.Click += new System.EventHandler(this.btnLOC_ThongKe_Click);
+            // 
+            // checkBoxGT_ThongKE
+            // 
+            this.checkBoxGT_ThongKE.AutoSize = true;
+            this.checkBoxGT_ThongKE.Location = new System.Drawing.Point(110, 10);
+            this.checkBoxGT_ThongKE.Name = "checkBoxGT_ThongKE";
+            this.checkBoxGT_ThongKE.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxGT_ThongKE.TabIndex = 4;
+            this.checkBoxGT_ThongKE.Text = "Lọc theo sl giải";
+            this.checkBoxGT_ThongKE.UseVisualStyleBackColor = true;
+            this.checkBoxGT_ThongKE.Click += new System.EventHandler(this.checkBoxGT_ThongKE_Click);
+            // 
+            // checkedListBoxSLGT_ThongKe
+            // 
+            this.checkedListBoxSLGT_ThongKe.Enabled = false;
+            this.checkedListBoxSLGT_ThongKe.FormattingEnabled = true;
+            this.checkedListBoxSLGT_ThongKe.Location = new System.Drawing.Point(110, 33);
+            this.checkedListBoxSLGT_ThongKe.Name = "checkedListBoxSLGT_ThongKe";
+            this.checkedListBoxSLGT_ThongKe.Size = new System.Drawing.Size(101, 109);
+            this.checkedListBoxSLGT_ThongKe.TabIndex = 3;
+            // 
+            // checkBoxMH_ThongKe
+            // 
+            this.checkBoxMH_ThongKe.AutoSize = true;
+            this.checkBoxMH_ThongKe.Location = new System.Drawing.Point(3, 10);
+            this.checkBoxMH_ThongKe.Name = "checkBoxMH_ThongKe";
+            this.checkBoxMH_ThongKe.Size = new System.Drawing.Size(101, 17);
+            this.checkBoxMH_ThongKe.TabIndex = 2;
+            this.checkBoxMH_ThongKe.Text = "Lọc theo sl môn";
+            this.checkBoxMH_ThongKe.UseVisualStyleBackColor = true;
+            this.checkBoxMH_ThongKe.Click += new System.EventHandler(this.checkBoxMH_ThongKe_Click);
+            // 
+            // checkedListBoxSLMH_ThongKe
+            // 
+            this.checkedListBoxSLMH_ThongKe.Enabled = false;
+            this.checkedListBoxSLMH_ThongKe.FormattingEnabled = true;
+            this.checkedListBoxSLMH_ThongKe.Location = new System.Drawing.Point(3, 33);
+            this.checkedListBoxSLMH_ThongKe.Name = "checkedListBoxSLMH_ThongKe";
+            this.checkedListBoxSLMH_ThongKe.Size = new System.Drawing.Size(101, 109);
+            this.checkedListBoxSLMH_ThongKe.TabIndex = 2;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(373, 364);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(107, 13);
+            this.label23.TabIndex = 3;
+            this.label23.Text = "Số lượng giải thưởng ";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(373, 158);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(114, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Số lượng môn đăng ký";
+            // 
             // chart_GT
             // 
             chartArea1.Name = "ChartArea1";
@@ -838,85 +917,6 @@ namespace BTCK_CTDL
             this.chart_MH.Size = new System.Drawing.Size(502, 186);
             this.chart_MH.TabIndex = 0;
             this.chart_MH.Text = "chart1";
-            // 
-            // checkedListBoxSLMH_ThongKe
-            // 
-            this.checkedListBoxSLMH_ThongKe.Enabled = false;
-            this.checkedListBoxSLMH_ThongKe.FormattingEnabled = true;
-            this.checkedListBoxSLMH_ThongKe.Location = new System.Drawing.Point(3, 33);
-            this.checkedListBoxSLMH_ThongKe.Name = "checkedListBoxSLMH_ThongKe";
-            this.checkedListBoxSLMH_ThongKe.Size = new System.Drawing.Size(101, 109);
-            this.checkedListBoxSLMH_ThongKe.TabIndex = 2;
-            // 
-            // checkBoxMH_ThongKe
-            // 
-            this.checkBoxMH_ThongKe.AutoSize = true;
-            this.checkBoxMH_ThongKe.Location = new System.Drawing.Point(3, 10);
-            this.checkBoxMH_ThongKe.Name = "checkBoxMH_ThongKe";
-            this.checkBoxMH_ThongKe.Size = new System.Drawing.Size(101, 17);
-            this.checkBoxMH_ThongKe.TabIndex = 2;
-            this.checkBoxMH_ThongKe.Text = "Lọc theo sl môn";
-            this.checkBoxMH_ThongKe.UseVisualStyleBackColor = true;
-            this.checkBoxMH_ThongKe.Click += new System.EventHandler(this.checkBoxMH_ThongKe_Click);
-            // 
-            // checkedListBoxSLGT_ThongKe
-            // 
-            this.checkedListBoxSLGT_ThongKe.Enabled = false;
-            this.checkedListBoxSLGT_ThongKe.FormattingEnabled = true;
-            this.checkedListBoxSLGT_ThongKe.Location = new System.Drawing.Point(110, 33);
-            this.checkedListBoxSLGT_ThongKe.Name = "checkedListBoxSLGT_ThongKe";
-            this.checkedListBoxSLGT_ThongKe.Size = new System.Drawing.Size(101, 109);
-            this.checkedListBoxSLGT_ThongKe.TabIndex = 3;
-            // 
-            // checkBoxGT_ThongKE
-            // 
-            this.checkBoxGT_ThongKE.AutoSize = true;
-            this.checkBoxGT_ThongKE.Location = new System.Drawing.Point(110, 10);
-            this.checkBoxGT_ThongKE.Name = "checkBoxGT_ThongKE";
-            this.checkBoxGT_ThongKE.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxGT_ThongKE.TabIndex = 4;
-            this.checkBoxGT_ThongKE.Text = "Lọc theo sl giải";
-            this.checkBoxGT_ThongKE.UseVisualStyleBackColor = true;
-            this.checkBoxGT_ThongKE.Click += new System.EventHandler(this.checkBoxGT_ThongKE_Click);
-            // 
-            // btnLOC_ThongKe
-            // 
-            this.btnLOC_ThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnLOC_ThongKe.Location = new System.Drawing.Point(217, 33);
-            this.btnLOC_ThongKe.Name = "btnLOC_ThongKe";
-            this.btnLOC_ThongKe.Size = new System.Drawing.Size(36, 107);
-            this.btnLOC_ThongKe.TabIndex = 2;
-            this.btnLOC_ThongKe.Text = "Lọc";
-            this.btnLOC_ThongKe.UseVisualStyleBackColor = false;
-            this.btnLOC_ThongKe.Click += new System.EventHandler(this.btnLOC_ThongKe_Click);
-            // 
-            // listBox_ThongKe
-            // 
-            this.listBox_ThongKe.FormattingEnabled = true;
-            this.listBox_ThongKe.Location = new System.Drawing.Point(3, 146);
-            this.listBox_ThongKe.Name = "listBox_ThongKe";
-            this.listBox_ThongKe.Size = new System.Drawing.Size(250, 251);
-            this.listBox_ThongKe.TabIndex = 2;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(373, 158);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(114, 13);
-            this.label22.TabIndex = 2;
-            this.label22.Text = "Số lượng môn đăng ký";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(373, 364);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(107, 13);
-            this.label23.TabIndex = 3;
-            this.label23.Text = "Số lượng giải thưởng ";
             // 
             // Form1
             // 

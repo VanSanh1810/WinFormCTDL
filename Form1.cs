@@ -23,7 +23,7 @@ namespace BTCK_CTDL
         public int _tienThuong;
 
         public DataTable dt_SV = new DataTable(); //Bảng dữ liệu của sinh viên
-        public LinkedList<SinhVien> SV = new LinkedList<SinhVien>();
+        public LinkedList<SinhVien> SV = new LinkedList<SinhVien>(); //Danh sách liên kết của Sinh Viên
 
         Exception TrungDuLieu_SV = new Exception("This student already exists in the list !");
         Exception KhongCoDuLieu_SV = new Exception("This student dont exists in the list !");
@@ -565,7 +565,7 @@ namespace BTCK_CTDL
                         listBox_ThongKe.Items.Add("Số giải thưởng đã có: " + K.GT.Count.ToString());
                         listBox_ThongKe.Items.Add("---------------------------------------");
                     }
-                    catch (Exception error)
+                    catch
                     {
                         //break;
                     }
