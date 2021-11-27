@@ -191,7 +191,31 @@ namespace BTCK_CTDL
                 _namsinh = int.Parse(txbNAMSINH_addSV.Text);
                 if (!checkSV(_MSSV)) //Không có sv
                 {
-                    SV.AddLast(new SinhVien(_MSSV, _name, _namsinh));
+                    //SV.AddLast(new SinhVien(_MSSV, _name, _namsinh));
+                    if(SV.Count != 0)
+                    {
+                        if(int.Parse(_MSSV) < int.Parse(SV.First.Value.MSSV))
+                        {
+                            SV.AddFirst(new SinhVien(_MSSV, _name, _namsinh));
+                        }
+                        else
+                        {
+                            for (LinkedListNode<SinhVien> K = SV.First; K.Next != null; K = K.Next)
+                            {
+                                if (int.Parse(K.Value.MSSV) < int.Parse(_MSSV) && int.Parse(K.Next.Value.MSSV) > int.Parse(_MSSV))
+                                {
+                                    SV.AddAfter(K, new SinhVien(_MSSV, _name, _namsinh));
+                                    goto NEXT;
+                                }
+                            }
+                            SV.AddLast(new SinhVien(_MSSV, _name, _namsinh));
+                        }
+                    }
+                    else
+                    {
+                        SV.AddLast(new SinhVien(_MSSV, _name, _namsinh));
+                    }
+                    NEXT:
                     Update_dtSV();
                     //
                     txbMSSV_addSV.Text = "";
