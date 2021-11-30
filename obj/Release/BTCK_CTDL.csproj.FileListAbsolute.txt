@@ -1,7 +1,6 @@
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Release\BTCK_CTDL.exe.config
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Release\BTCK_CTDL.exe
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\bin\Release\BTCK_CTDL.pdb
-C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Release\BTCK_CTDL.csproj.AssemblyReference.cache
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Release\BTCK_CTDL.Form1.resources
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Release\BTCK_CTDL.Properties.Resources.resources
 C:\Users\Administrator\Desktop\Winf\BTCK_CTDL\obj\Release\BTCK_CTDL.csproj.GenerateResource.cache

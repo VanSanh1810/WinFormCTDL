@@ -14,10 +14,34 @@ namespace BTCK_CTDL
             try
             {
                 string[] sv = File.ReadAllLines("ListSV.txt");
-                for (int i = 0; i < sv.Length; i++)
+                for (int i = 0; i < sv.Length; i = i +1)
                 {
                     string[] temp = sv[i].Split(' ');
-                    SV.AddFirst(new SinhVien(temp[0], temp[1], int.Parse(temp[2])));
+                    //SV.AddFirst(new SinhVien(temp[0], temp[1], int.Parse(temp[2])));
+                    if (SV.Count != 0) //Nếu danh sách không rỗng
+                    {
+                        if (int.Parse(temp[0]) < int.Parse(SV.First.Value.MSSV)) //Nếu mssv nhỏ nhất
+                        {
+                            SV.AddFirst(new SinhVien(temp[0], temp[1], int.Parse(temp[2])));
+                        }
+                        else
+                        {
+                            for (LinkedListNode<SinhVien> K = SV.First; K.Next != null; K = K.Next) //Vòng lặp tìm vị trí trung gian
+                            {
+                                if (int.Parse(K.Value.MSSV) < int.Parse(temp[0]) && int.Parse(K.Next.Value.MSSV) > int.Parse(temp[0]))
+                                {
+                                    SV.AddAfter(K, new SinhVien(temp[0], temp[1], int.Parse(temp[2])));
+                                    goto NEXT;
+                                }
+                            }
+                            SV.AddLast(new SinhVien(temp[0], temp[1], int.Parse(temp[2]))); //Nếu mssv lớn nhất
+                        }
+                    }
+                    else //Nếu danh sách rỗng
+                    {
+                        SV.AddLast(new SinhVien(temp[0], temp[1], int.Parse(temp[2])));
+                    }
+                    NEXT:;
                 }
             }
             catch
