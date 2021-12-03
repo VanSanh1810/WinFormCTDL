@@ -355,6 +355,55 @@ namespace BTCK_CTDL
             }
         }
 
+        private void txbMSSV_delMH_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                _MSSV = null;
+                _MSSV = txbMSSV_delMH.Text;
+                if (checkSV(_MSSV))
+                {
+                    lb_MHofVS_delMH.Text = "(" + _MSSV.ToString() + ")";
+                    var K = SV.SingleOrDefault(r => r.MSSV == _MSSV);
+                    K.Update_dtMH();
+                    dataGridView_MH.DataSource = K.dt_MH;
+                    K.dt_MH.AcceptChanges();
+                }
+                else
+                {
+                    lb_MHofVS_delMH.Text = "SV không tồn tại";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+        private void txbMSSV_addMH_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                _MSSV = null;
+                _MSSV = txbMSSV_addMH.Text;
+                if (checkSV(_MSSV))
+                {
+                    lb_MHofSV_addMH.Text = "(" + _MSSV.ToString() + ")";
+                    var K = SV.SingleOrDefault(r => r.MSSV == _MSSV);
+                    K.Update_dtMH();
+                    dataGridView_MH.DataSource = K.dt_MH;
+                    K.dt_MH.AcceptChanges();
+                }
+                else
+                {
+                    lb_MHofSV_addMH.Text = "SV không tồn tại";
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
 
         /////////////////////////////////////////////////GT
         private void btn_addGT_Click(object sender, EventArgs e)
@@ -365,7 +414,6 @@ namespace BTCK_CTDL
                 _MSSV = txbMSSV_addGT.Text;
                 if (checkSV(_MSSV))
                 {
-                    //lb_MHofSV_addMH.Text = "(" + _MSSV.ToString() + ")";
                     var K = SV.SingleOrDefault(r => r.MSSV == _MSSV);
                     _GT = txbTENGT_addGT.Text;
                     if(!K.GT.Any(r => r.GT == _GT))
@@ -387,6 +435,30 @@ namespace BTCK_CTDL
                 else
                 {
                     throw KhongCoDuLieu_SV;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+        private void txbMSSV_addGT_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                _MSSV = null;
+                _MSSV = txbMSSV_addGT.Text;
+                if (checkSV(_MSSV))
+                {
+                    label25.Text = "(" + _MSSV.ToString() + ")";
+                    var K = SV.SingleOrDefault(r => r.MSSV == _MSSV);
+                    K.Update_dtGT();
+                    dataGridView_GT.DataSource = K.dt_GT;
+                    K.dt_GT.AcceptChanges();
+                }
+                else
+                {
+                    label25.Text = "Sv Không tồn tại";
                 }
             }
             catch (Exception error)
@@ -632,7 +704,9 @@ namespace BTCK_CTDL
             MyFile.MakeFile(SV);
         }
 
+
         #endregion
 
+        
     }
 }

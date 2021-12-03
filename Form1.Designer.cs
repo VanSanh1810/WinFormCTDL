@@ -112,6 +112,7 @@ namespace BTCK_CTDL
             this.label22 = new System.Windows.Forms.Label();
             this.chart_GT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_MH = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage_SV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_SV)).BeginInit();
@@ -381,6 +382,7 @@ namespace BTCK_CTDL
             this.txbMSSV_delMH.Name = "txbMSSV_delMH";
             this.txbMSSV_delMH.Size = new System.Drawing.Size(100, 20);
             this.txbMSSV_delMH.TabIndex = 19;
+            this.txbMSSV_delMH.Leave += new System.EventHandler(this.txbMSSV_delMH_Leave);
             // 
             // label13
             // 
@@ -468,6 +470,7 @@ namespace BTCK_CTDL
             this.txbMSSV_addMH.Name = "txbMSSV_addMH";
             this.txbMSSV_addMH.Size = new System.Drawing.Size(100, 20);
             this.txbMSSV_addMH.TabIndex = 18;
+            this.txbMSSV_addMH.Leave += new System.EventHandler(this.txbMSSV_addMH_Leave);
             // 
             // label8
             // 
@@ -598,6 +601,7 @@ namespace BTCK_CTDL
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel5.Controls.Add(this.label25);
             this.panel5.Controls.Add(this.btn_addGT);
             this.panel5.Controls.Add(this.txbTIENTHG_addGT);
             this.panel5.Controls.Add(this.txbTENGT_addGT);
@@ -643,6 +647,7 @@ namespace BTCK_CTDL
             this.txbMSSV_addGT.Name = "txbMSSV_addGT";
             this.txbMSSV_addGT.Size = new System.Drawing.Size(100, 20);
             this.txbMSSV_addGT.TabIndex = 18;
+            this.txbMSSV_addGT.Leave += new System.EventHandler(this.txbMSSV_addGT_Leave);
             // 
             // label12
             // 
@@ -918,6 +923,15 @@ namespace BTCK_CTDL
             this.chart_MH.TabIndex = 0;
             this.chart_MH.Text = "chart1";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(289, 43);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(10, 13);
+            this.label25.TabIndex = 22;
+            this.label25.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1049,6 +1063,7 @@ namespace BTCK_CTDL
         private System.Windows.Forms.ListBox listBox_ThongKe;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label25;
     }
 }
 
